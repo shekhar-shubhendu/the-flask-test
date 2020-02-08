@@ -1,6 +1,6 @@
-from extensions import db
-from models import Student, StudentSchema
-from exception import TheFlaskTestException
+from the_flask_test.extensions import db
+from the_flask_test.models import Student, StudentSchema
+from the_flask_test.exception import TheFlaskTestException
 student_schema = StudentSchema()
 students_schema = StudentSchema(many=True)
 

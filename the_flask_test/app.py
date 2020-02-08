@@ -2,17 +2,16 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 
-from exception import TheFlaskTestException
-from extensions import db, migrate, marshmallow
-from routes import student_router
+from . import TheFlaskTestException, db, migrate, marshmallow
+from the_flask_test.routes import student_router
 
 
 def create_app(app_config):
     app = Flask(__name__)
     app.url_map.strict_slashes = False
-    app.config.from_object(app_config)
+    app.config.from_object(f"the_flask_test.{app_config}")
 
-    from models import Student
+    from the_flask_test.models import Student
 
     db.init_app(app)
     marshmallow.init_app(app)

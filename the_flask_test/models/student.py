@@ -1,4 +1,4 @@
-from extensions import db, marshmallow
+from the_flask_test.extensions import db, marshmallow
 
 
 class Student(db.Model):

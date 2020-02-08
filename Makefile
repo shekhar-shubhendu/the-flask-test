@@ -1,5 +1,5 @@
 
-FLASK_APP=src/app.py
+FLASK_APP=the_flask_test/app.py
 
 requirements:
 	@echo Generating requirements.txt
@@ -21,9 +21,9 @@ db-init:
 	FLASK_APP=$(FLASK_APP) flask db init
 
 db-migrate:
-	@echo initializing database
+	@echo migrate database
 	FLASK_APP=$(FLASK_APP) flask db migrate
 
 db-upgrade:
-	@echo initializing database
+	@echo upgrade database
 	FLASK_APP=$(FLASK_APP) flask db upgrade

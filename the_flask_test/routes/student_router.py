@@ -1,6 +1,6 @@
 from flask import jsonify, request
-from services import student_service
-from exception import TheFlaskTestException
+from the_flask_test.services import student_service
+from the_flask_test.exception import TheFlaskTestException
 
 
 def register_routes(app):
