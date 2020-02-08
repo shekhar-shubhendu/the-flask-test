@@ -1,11 +1,13 @@
-FROM python:3.7-slim
+FROM python:3.7-alpine as app-base
 USER root
-WORKDIR /app
-COPY . .
-RUN mv example.env .env
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		make gcc python-dev libpq-dev \
-	    && rm -rf /var/lib/apt/lists/* \
-        && pip install -r requirements.txt
+RUN apk add --no-cache musl-dev postgresql-dev gcc python3-dev linux-headers
+RUN pip wheel --wheel-dir=/root/wheels psycopg2
+
+FROM python:3.7-alpine as app-release
+USER root
 EXPOSE 8080
+WORKDIR /app
+COPY --from=app-base /root/wheels /root/wheels
+COPY . .
+RUN pip install -r requirements.txt
 CMD ["make", "start-prod"]
