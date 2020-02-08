@@ -27,3 +27,7 @@ db-migrate:
 db-upgrade:
 	@echo upgrade database
 	FLASK_APP=$(FLASK_APP) flask db upgrade
+
+start-prod: db-upgrade
+	@echo Stating gunicorn server
+	gunicorn --config gunicorn_config.py wsgi:application
