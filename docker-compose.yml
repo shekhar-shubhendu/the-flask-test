@@ -7,6 +7,8 @@ services:
     entrypoint: /app/scripts/wait-for-it.sh db:5432 -- make start-prod
     environment:
       - DATABASE_URL=postgresql://user:SuperSecurePassword@db/school
+      - SECRET_KEY=MySuperSecretKey
+      - APP_SETTINGS=config.ProdConfig
     depends_on:
       - db
 
