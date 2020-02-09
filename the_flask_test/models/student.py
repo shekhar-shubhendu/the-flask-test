@@ -25,6 +25,7 @@ class Student(db.Model):
 
     def serialize(self):
         return {
+            'id': self.id,
             'name': self.name,
             'class': self.class_no,
             'sex': self.sex,

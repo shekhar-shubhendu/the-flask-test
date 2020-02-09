@@ -22,6 +22,7 @@ def update_student(id, data):
     if err:
         raise TheFlaskTestException('Validation Failed', 400, err)
     result = result.serialize()
+    result.pop('id')
     result['class_no'] = result.pop('class')
     db.session.query(Student).filter(Student.id == id).update(result)
     db.session.commit()
