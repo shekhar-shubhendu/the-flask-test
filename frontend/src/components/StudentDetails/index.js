@@ -2,36 +2,33 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { Table, Button } from 'react-bootstrap';
-import StudentModal from '../../containers/StudentModal'
 
 class StudentDetails extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            showModal: false
-        };
+        this.props.getAllStudents()
     }
-    updateDetails = (info) => {
+    updateDetails = (id) => {
+        //info.heading = 'EDIT'
+        console.log(id)
+        //this.props.updateModal(info)
         this.props.toggleModal()
-        console.log("Edit ", info);
     };
-    handleClose = () => {
-        this.setState({
-            showModal: false
-        });
-    };
-    deactivate = (info) => {
-        console.log("deactivate", info);
+    delete = (id) => {
+        console.log("delete", id);
     };
     render() {
-        const studentExample = {
-            name: "Shubhendu",
-            age: "27",
-            sex: "Male",
-            sibling: 1,
-            gpa: "10"
+        const studentExample = [
+            {
+                id: 1,
+                name: "Shubhendu",
+                age: "27",
+                sex: "Male",
+                sibling: 1,
+                gpa: "10"
 
-        }
+            }
+        ]
         return (
             <>
                 <Table responsive>
@@ -47,28 +44,34 @@ class StudentDetails extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>{studentExample.name}</td>
-                            <td>{studentExample.age}</td>
-                            <td>{studentExample.sex}</td>
-                            <td>{studentExample.sibling}</td>
-                            <td>{studentExample.gpa}</td>
-                            <td><Button variant="primary" onClick={this.updateDetails}>
-                                    <FontAwesomeIcon icon={faEdit}/>
-                                </Button>
-                            </td>
-                            <td><Button variant="danger" onClick={this.deactivate}>
-                                    <FontAwesomeIcon icon={faTrash}/>
-                                </Button>
-                            </td>
-                        </tr>
+                        {
+                            this.props.students.map((item, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>{item.name}</td>
+                                        <td>{item.age}</td>
+                                        <td>{item.sex}</td>
+                                        <td>{item.siblings}</td>
+                                        <td>{item.gpa}</td>
+                                        <td><Button variant="primary" onClick={() => this.updateDetails(item.id)}>
+                                            <FontAwesomeIcon icon={faEdit} />
+                                        </Button>
+                                        </td>
+                                        <td><Button variant="danger" onClick={() => this.delete(item.id)}>
+                                            <FontAwesomeIcon icon={faTrash} />
+                                        </Button>
+                                        </td>
+                                    </tr>
+                                )
+                            })
+
+                        }
                     </tbody>
                 </Table>
                 <Button variant="primary" className="add-student">
                     <FontAwesomeIcon icon={faPlus} />
                 </Button>
-                <StudentModal showModal={this.state.showModal} />
             </>
         );
     }

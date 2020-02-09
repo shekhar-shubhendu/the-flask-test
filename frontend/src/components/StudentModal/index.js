@@ -20,11 +20,12 @@ class StudentModal extends Component {
         this.props.toggleModal()
     };
     render() {
+        console.log(this.props)
         return (
             <>
                 <Modal show={this.props.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
-                        <Modal.Title>Modal heading</Modal.Title>
+                        <Modal.Title>{ this.props.heading }</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Form>

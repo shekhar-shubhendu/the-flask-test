@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
         case TOGGLE_MODAL:
             return Object.assign({}, state, { show: !state.show })
         case UPDATE_MODAL:
-            return Object.assign({}, state, { data: action['payload'] })
+            return Object.assign({}, state, { data: action.payload })
         default:
             return state //return default state
     }
