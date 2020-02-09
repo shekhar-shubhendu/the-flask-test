@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 
-from . import TheFlaskTestException, db, migrate, marshmallow
+from . import TheFlaskTestException, db, migrate, marshmallow, cors
 from the_flask_test.routes import student_router
 
 
@@ -16,6 +16,7 @@ def create_app(app_config):
     db.init_app(app)
     marshmallow.init_app(app)
     migrate.init_app(app, db)
+    cors.init_app(app)
 
     setup_error_handler(app)
     student_router.register_routes(app)
