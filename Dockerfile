@@ -19,5 +19,5 @@ EXPOSE 8080
 WORKDIR /app
 COPY --from=app-base /venv /venv
 COPY . .
-RUN apk add make
+RUN apk add libpq bash make
 CMD ["make", "start-prod"]
