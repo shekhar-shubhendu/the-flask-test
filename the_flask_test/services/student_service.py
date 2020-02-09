@@ -27,7 +27,7 @@ def update_student(id, data):
     db.session.query(Student).filter(Student.id == id).update(result)
     db.session.commit()
     return {
-            'id': id
+            'id': int(id)
     }
 
 
@@ -37,7 +37,7 @@ def delete_student(id: int):
         db.session.delete(student)
         db.session.commit()
         return {
-            'id': id
+            'id': int(id)
         }
     raise TheFlaskTestException('Student Not Found', 404)
 
@@ -49,7 +49,7 @@ def add_student(args):
     db.session.add(result)
     db.session.commit()
     return {
-        'id': result.id
+        'id': int(result.id)
     }
 
 
