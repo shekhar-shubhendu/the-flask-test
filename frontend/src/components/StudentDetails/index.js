@@ -9,26 +9,18 @@ class StudentDetails extends Component {
         this.props.getAllStudents()
     }
     updateDetails = (id) => {
-        //info.heading = 'EDIT'
-        console.log(id)
-        //this.props.updateModal(info)
-        this.props.toggleModal()
+        const student = this.props.students.find(o => o.id === id);
+        this.props.updateModal(student)
+        this.props.toggleModal('edit')
     };
     delete = (id) => {
-        console.log("delete", id);
+        this.props.deleteStudent(id)
     };
+    openCreateModal = () => {
+        this.props.updateModal({})
+        this.props.toggleModal('add')
+    }
     render() {
-        const studentExample = [
-            {
-                id: 1,
-                name: "Shubhendu",
-                age: "27",
-                sex: "Male",
-                sibling: 1,
-                gpa: "10"
-
-            }
-        ]
         return (
             <>
                 <Table responsive>
@@ -37,6 +29,7 @@ class StudentDetails extends Component {
                             <th>#</th>
                             <th>Name</th>
                             <th>Age</th>
+                            <th>Class</th>
                             <th>Gender</th>
                             <th>Sibling</th>
                             <th>GPA</th>
@@ -51,6 +44,7 @@ class StudentDetails extends Component {
                                         <td>{index + 1}</td>
                                         <td>{item.name}</td>
                                         <td>{item.age}</td>
+                                        <td>{item.class}</td>
                                         <td>{item.sex}</td>
                                         <td>{item.siblings}</td>
                                         <td>{item.gpa}</td>
@@ -69,7 +63,7 @@ class StudentDetails extends Component {
                         }
                     </tbody>
                 </Table>
-                <Button variant="primary" className="add-student">
+                <Button variant="primary" className="add-student" onClick={ () => { this.openCreateModal() }}>
                     <FontAwesomeIcon icon={faPlus} />
                 </Button>
             </>
