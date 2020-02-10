@@ -1,6 +1,6 @@
 version: '3'
 services:
-  app:
+  api:
     build:
       context: .
     ports: ["8080:8080"]
@@ -11,6 +11,14 @@ services:
       - APP_SETTINGS=config.ProdConfig
     depends_on:
       - db
+
+  app:
+    build:
+      context: ./frontend
+      dockerfile: ./Dockerfile
+    ports: ["3000:80"]
+    depends_on:
+      - api
 
   db:
     image: postgres:11
