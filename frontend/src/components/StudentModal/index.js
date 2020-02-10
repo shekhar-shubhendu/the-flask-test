@@ -14,7 +14,11 @@ class StudentModal extends Component {
     handleFormSubmit = (data) => {
         this.props.handleCreate(this.props.mode, data)
     }
-    required = value => value ? undefined : 'Required'
+    required = value => {
+        if(value === undefined || value === null || value < 0)
+            return 'Required';
+        return undefined;
+    }
     number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
     isValidName = str => str && /\d/.test(str) ? 'Invalid Name' : undefined
     render() {
