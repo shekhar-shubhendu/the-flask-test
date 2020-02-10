@@ -1,12 +1,12 @@
 FROM node:12.8.0-alpine as flask-test-frontend-build
 WORKDIR /app
-RUN apk add make gcc g++ python git
+RUN apk add make gcc g++ python git yarn
 COPY  . .
 RUN mv example.env .env && \
-    npm install && \
-    npm run build
+    yarn install && \
+    yarn run build
 
-FROM nginx:1.13.7-alpine
+FROM nginx:1.17.8-alpine
 
 COPY ./docker/nginx.conf /etc/nginx/nginx.conf	
 COPY ./docker/default.conf /etc/nginx/conf.d/default.conf
