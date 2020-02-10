@@ -1,9 +1,6 @@
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
 export const UPDATE_MODAL = 'UPDATE_MODAL'
-
 export const SAVE_STUDENT_DATA = 'SAVE_STUDENT_DATA'
-
 export const UPDATE_STUDENT = 'UPDATE_STUDENT'
-
 export const ADD_STUDENT = 'ADD_STUDENT'
 export const DELETE_STUDENT = 'DELETE_STUDENT'
