@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes, faSave } from '@fortawesome/free-solid-svg-icons'
-import { Button, Modal, Form } from 'react-bootstrap';
-import { Field, reduxForm } from 'redux-form';
-import FormInput from '../FormInput';
+import { Button, Modal, Form } from 'react-bootstrap'
+import { Field, reduxForm } from 'redux-form'
+import FormInput from '../FormInput'
 import FormSelect from '../FormSelect'
 
 class StudentModal extends Component {
     handleClose = () => {
         this.props.toggleModal()
-    };
+    }
     handleFormSubmit = (data) => {
         this.props.handleCreate(this.props.mode, data)
     }
@@ -18,7 +18,7 @@ class StudentModal extends Component {
     number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
     isValidName = str => str && /\d/.test(str) ? 'Invalid Name' : undefined
     render() {
-        const { show, handleSubmit, pristine, submitting } = this.props;
+        const { show, handleSubmit, pristine, submitting } = this.props
         return (
             <>
                 <Modal show={show} onHide={this.handleClose}>
@@ -110,14 +110,14 @@ class StudentModal extends Component {
                     </form>
                 </Modal>
             </>
-        );
+        )
     }
 }
 
 StudentModal = reduxForm({
     form: 'StudentModal',
     enableReinitialize: true
-})(StudentModal);
+})(StudentModal)
 
 StudentModal = connect(
     (state) => {

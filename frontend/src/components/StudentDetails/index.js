@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap'
 
 class StudentDetails extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.props.getAllStudents()
     }
     updateDetails = (id) => {
-        const student = this.props.students.find(o => o.id === id);
+        const student = this.props.students.find(o => o.id === id)
         this.props.updateModal(student)
         this.props.toggleModal('edit')
-    };
+    }
     delete = (id) => {
         this.props.deleteStudent(id)
-    };
+    }
     openCreateModal = () => {
         this.props.updateModal({})
         this.props.toggleModal('add')
@@ -67,8 +67,8 @@ class StudentDetails extends Component {
                     <FontAwesomeIcon icon={faPlus} />
                 </Button>
             </>
-        );
+        )
     }
 }
 
-export default StudentDetails;
+export default StudentDetails

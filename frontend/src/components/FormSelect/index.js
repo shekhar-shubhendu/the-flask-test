@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Form } from 'react-bootstrap';
+import React, { Component } from 'react'
+import { Form } from 'react-bootstrap'
 
 class FormSelect extends Component {
     render() {
-        const { id, input, meta: { touched, error, warning } } = this.props;
+        const { id, input, meta: { touched, error, warning } } = this.props
         return (
             <>
                 <Form.Control id={id} as="select" {...input}>
@@ -15,8 +15,8 @@ class FormSelect extends Component {
                     {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
                 </div>
             </>
-        );
+        )
     }
 }
 
-export default FormSelect;
+export default FormSelect

@@ -18,34 +18,37 @@ export const saveStudentsData = (payload) => {
     }
 }
 
-export const saveStudent = (mode, data) => {
+export const saveStudent = (data) => {
     return dispatch => {
         let url = `${API_URL}/student`
-        let value = data
-        let action = 'post'
-        if (mode === 'edit') {
-            url = `${url}/${value.id}`
-            value = {
-                name: data.name,
-                age: data.age,
-                class: data.class,
-                sex: data.sex,
-                gpa: data.gpa,
-                siblings: data.siblings
-            }
-            action = 'put'
-        }
-        return axios[action](url, value)
+        return axios.post(url, data)
             .then(function (response) {
-                if (mode === 'edit') {
-                    dispatch(updateStudent({ id: response.data.id, ...value }))
-                } else {
-                    dispatch(addStudent({ id: response.data.id, ...value }))
-                }
+                dispatch(addStudent({ id: response.data.id, ...data }))
             })
             .catch(function (error) {
-                console.log(error);
-            });
+                console.log(error)
+            })
+    }
+}
+
+export const updateStudentData = (data) => {
+    return dispatch => {
+        const url = `${API_URL}/student/${data.id}`
+        const value = {
+            name: data.name,
+            age: data.age,
+            class: data.class,
+            sex: data.sex,
+            gpa: data.gpa,
+            siblings: data.siblings
+        }
+        return axios.put(url, value)
+            .then(function (response) {
+                dispatch(updateStudent({ id: response.data.id, ...value }))
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
     }
 }
 
@@ -70,8 +73,8 @@ export const deleteStudent = (payload) => {
                 dispatch(deleteStudentData(response.data))
             })
             .catch(function (error) {
-                console.log(error);
-            });
+                console.log(error)
+            })
     }
 }
 

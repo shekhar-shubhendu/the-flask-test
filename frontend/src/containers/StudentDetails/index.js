@@ -1,11 +1,11 @@
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import { toggleModal, updateModal } from '../../redux/actions/ModalActions'
 import { fetchStudents, deleteStudent } from '../../redux/actions/APIActions'
-import StudentDetails from '../../components/StudentDetails';
+import StudentDetails from '../../components/StudentDetails'
 
 export default connect(
   (state) => {
-    return { students: state.student.data };
+    return { students: state.student.data }
   },
   dispatch => ({
     toggleModal: (payload) => {
