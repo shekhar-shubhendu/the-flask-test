@@ -10,7 +10,7 @@ class Student(db.Model):
     sex = db.Column(db.String(), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     siblings = db.Column(db.Integer, nullable=False)
-    gpa = db.Column(db.Integer, nullable=False)
+    gpa = db.Column(db.Float, nullable=False)
 
     def __init__(self, name, class_no, sex, age, siblings, gpa):
         self.name = name
