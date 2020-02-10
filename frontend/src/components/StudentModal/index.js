@@ -15,105 +15,103 @@ class StudentModal extends Component {
         this.props.handleCreate(this.props.mode, data)
     }
     required = value => {
-        if(value === undefined || value === null || value < 0)
+        if (value === undefined || value === null || value < 0)
             return 'Required';
         return undefined;
     }
     number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined
     isValidName = str => str && /\d/.test(str) ? 'Invalid Name' : undefined
     render() {
-        const { show, handleSubmit, pristine, submitting } = this.props
+        const { mode, show, handleSubmit, pristine, submitting } = this.props
         return (
-            <>
-                <Modal show={show} onHide={this.handleClose}>
+            <Modal show={show} onHide={this.handleClose}>
 
-                    <form onSubmit={handleSubmit(this.handleFormSubmit)}>
-                        <Modal.Header closeButton>
-                            <Modal.Title className="app-modal-title">{this.props.mode} Student</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <Form.Group controlId='Name'>
-                                <Form.Label>
-                                    Name
+                <form onSubmit={handleSubmit(this.handleFormSubmit)}>
+                    <Modal.Header closeButton>
+                        <Modal.Title className="app-modal-title">{mode} Student</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form.Group controlId='Name'>
+                            <Form.Label>
+                                Name
                                 </Form.Label>
-                                <Field
-                                    name="name"
-                                    component={FormInput}
-                                    type="text"
-                                    placeholder="Name"
-                                    validate={[ this.required, this.isValidName ]}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId='Age'>
-                                <Form.Label>
-                                    Age
+                            <Field
+                                name="name"
+                                component={FormInput}
+                                type="text"
+                                placeholder="Name"
+                                validate={[this.required, this.isValidName]}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='Age'>
+                            <Form.Label>
+                                Age
                                 </Form.Label>
-                                <Field
-                                    name="age"
-                                    component={FormInput}
-                                    type="number"
-                                    placeholder="Age"
-                                    validate={[ this.required, this.number ]}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId='Class'>
-                                <Form.Label>
-                                    Class
+                            <Field
+                                name="age"
+                                component={FormInput}
+                                type="number"
+                                placeholder="Age"
+                                validate={[this.required, this.number]}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='Class'>
+                            <Form.Label>
+                                Class
                                 </Form.Label>
-                                <Field
-                                    name="class"
-                                    component={FormInput}
-                                    type="number"
-                                    placeholder="Class"
-                                    validate={[ this.required, this.number ]}
-                                />
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Label>Sex</Form.Label>
-                                <Field
-                                    name='sex'
-                                    component={FormSelect}
-                                    type='select'
-                                    id='sex'
-                                    validate={[ this.required ]}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId='GPA'>
-                                <Form.Label>
-                                    GPA
+                            <Field
+                                name="class"
+                                component={FormInput}
+                                type="number"
+                                placeholder="Class"
+                                validate={[this.required, this.number]}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Sex</Form.Label>
+                            <Field
+                                name='sex'
+                                component={FormSelect}
+                                type='select'
+                                id='sex'
+                                validate={[this.required]}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='GPA'>
+                            <Form.Label>
+                                GPA
                                 </Form.Label>
-                                <Field
-                                    name="gpa"
-                                    component={FormInput}
-                                    type="number"
-                                    placeholder="GPA"
-                                    validate={[ this.required, this.number ]}
-                                />
-                            </Form.Group>
-                            <Form.Group controlId='Siblings'>
-                                <Form.Label>
-                                    Siblings
+                            <Field
+                                name="gpa"
+                                component={FormInput}
+                                type="number"
+                                placeholder="GPA"
+                                validate={[this.required, this.number]}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId='Siblings'>
+                            <Form.Label>
+                                Siblings
                                 </Form.Label>
-                                <Field
-                                    name="siblings"
-                                    component={FormInput}
-                                    type="number"
-                                    placeholder="Siblings"
-                                    validate={[ this.required, this.number ]}
-                                />
-                            </Form.Group>
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button variant="secondary" onClick={this.handleClose}>
-                                <FontAwesomeIcon icon={faTimes} />
-                            </Button>
-                            <Button variant="primary" disabled={pristine || submitting} type="submit">
-                                <FontAwesomeIcon icon={faSave} />
-                            </Button>
-                        </Modal.Footer>
-                    </form>
-                </Modal>
-            </>
+                            <Field
+                                name="siblings"
+                                component={FormInput}
+                                type="number"
+                                placeholder="Siblings"
+                                validate={[this.required, this.number]}
+                            />
+                        </Form.Group>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={this.handleClose}>
+                            <FontAwesomeIcon icon={faTimes} />
+                        </Button>
+                        <Button variant="primary" disabled={pristine || submitting} type="submit">
+                            <FontAwesomeIcon icon={faSave} />
+                        </Button>
+                    </Modal.Footer>
+                </form>
+            </Modal>
         )
     }
 }
