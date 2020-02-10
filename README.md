@@ -10,6 +10,13 @@ This project is divided into 2 parts:
 
 ## API Docs
 
+Base path: `/api/v1`
+
+- GET `/students` : Get all students
+- POST `/student` : Add new student
+- PUT `/student/<uuid>` : Update student by id
+- DELETE `/student/uuid` : Delete student by id
+
 ## Getting up and running
 
 Before we begin with the setup process I would like to point that we've the deployed version up and running and you can use it to try out with out going into any hassels:
