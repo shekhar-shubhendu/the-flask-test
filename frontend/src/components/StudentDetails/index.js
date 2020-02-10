@@ -23,7 +23,7 @@ class StudentDetails extends Component {
     render() {
         return (
             <>
-                <Table responsive>
+                <Table responsive striped bordered hover>
                     <thead>
                         <tr>
                             <th>#</th>
@@ -48,13 +48,13 @@ class StudentDetails extends Component {
                                         <td>{item.sex}</td>
                                         <td>{item.siblings}</td>
                                         <td>{item.gpa}</td>
-                                        <td><Button variant="primary" onClick={() => this.updateDetails(item.id)}>
-                                            <FontAwesomeIcon icon={faEdit} />
-                                        </Button>
-                                        </td>
-                                        <td><Button variant="danger" onClick={() => this.delete(item.id)}>
-                                            <FontAwesomeIcon icon={faTrash} />
-                                        </Button>
+                                        <td>
+                                            <Button variant="primary" className="action-buttons" onClick={() => this.updateDetails(item.id)}>
+                                                <FontAwesomeIcon icon={faEdit} />
+                                            </Button>
+                                            <Button variant="danger" onClick={() => this.delete(item.id)}>
+                                                <FontAwesomeIcon icon={faTrash} />
+                                            </Button>
                                         </td>
                                     </tr>
                                 )
@@ -63,8 +63,8 @@ class StudentDetails extends Component {
                         }
                     </tbody>
                 </Table>
-                <Button variant="primary" className="add-student" onClick={ () => { this.openCreateModal() }}>
-                    <FontAwesomeIcon icon={faPlus} />
+                <Button variant="primary" className="add-student" onClick={() => { this.openCreateModal() }}>
+                    <FontAwesomeIcon icon={faPlus} size="lg" />
                 </Button>
             </>
         )

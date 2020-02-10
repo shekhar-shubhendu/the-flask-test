@@ -1,14 +1,33 @@
+.header {
+  background-color: #007bfe;
+  padding: 1rem;
+  color: #fff;
+  margin-bottom: 4rem;
+  webkit-box-shadow: -1px 14px 26px -17px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 14px 26px -17px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 14px 26px -17px rgba(0, 0, 0, 0.75);
+}
+.student-details-card {
+  margin: 2rem;
+  padding: 2rem;
+}
+.action-buttons {
+  margin-right: 1rem;
+}
+
 .add-student {
-    position: fixed;
-    right: 0;
-    bottom: 5rem;
-    border-radius: 50%;
+  position: fixed;
+  right: 2.5rem;
+  bottom: 10rem;
+  border-radius: 50%;
+  padding: 20px;
+  text-align: center;
 }
 
 .app-modal-title:first-letter {
-        text-transform:capitalize;
+  text-transform: capitalize;
 }
 
 .app-form-error {
-    color: red;
+  color: red;
 }
