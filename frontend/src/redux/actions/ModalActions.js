@@ -1,9 +1,10 @@
 import { TOGGLE_MODAL, UPDATE_MODAL } from './ActionTypes'
 
 
-export const toggleModal = () => {
+export const toggleModal = (payload) => {
     return {
-      type: TOGGLE_MODAL
+      type: TOGGLE_MODAL,
+      payload
     }
 }
 
