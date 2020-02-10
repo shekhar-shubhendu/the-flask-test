@@ -34,13 +34,13 @@ Before we begin with the setup process I would like to point that we've the depl
 #### Known issues
 
 The react frontend sometimes does not automatically refreshes/updates the DOM. A manual reload/refresh is required to update the data. This issues seems related to docker
-as we were unable to reproduce the same in prod.
+and nginx as we were unable to reproduce the same in production.
 
 ### and without Docker
 
 #### Database
 
-Install and start the postges 11 database server.
+Install and start the Postgres 11 database server.
 And update the `DATABASE_URL` accordingly in `.env` file
 
 #### API
