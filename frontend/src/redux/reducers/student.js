@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case UPDATE_STUDENT:
             const arr = [...state.data]
             const index = arr.findIndex(o => o.id === action.payload.id)
-            if (index) {
+            if (index >= 0) {
                 arr[index] = action.payload
             }
             return {

@@ -7,7 +7,7 @@ export const fetchStudents = () => {
     return dispatch => {
         return fetch(`${API_URL}/students`)
             .then(response => response.json())
-            .then(data => dispatch(saveStudentsData(data)))
+            .then(data => dispatch(saveStudentsData(data.students)))
     }
 }
 

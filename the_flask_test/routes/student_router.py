@@ -10,7 +10,9 @@ def register_routes(app):
     @cross_origin()
     def get_all_students():
         students = student_service.get_all_students()
-        return jsonify([e.serialize() for e in students])
+        return jsonify({
+            'students': [e.serialize() for e in students]
+        })
 
     @app.route(f"/api/{API_VERSION}/student", methods=["POST"])
     @cross_origin()
