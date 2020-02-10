@@ -4,3 +4,11 @@
     bottom: 5rem;
     border-radius: 50%;
 }
+
+.app-modal-title:first-letter {
+        text-transform:capitalize;
+}
+
+.app-form-error {
+    color: red;
+}
