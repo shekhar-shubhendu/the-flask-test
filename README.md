@@ -17,6 +17,8 @@ Base path: `/api/v1`
 - PUT `/student/<uuid>` : Update student by id
 - DELETE `/student/uuid` : Delete student by id
 
+API is also documented on [Swagger Hub](https://app.swaggerhub.com/apis/sshekhar/the-flask-test/1.0.0)
+
 ## Getting up and running
 
 Before we begin with the setup process I would like to point that we've the deployed version up and running and you can use it to try out with out going into any hassels:
